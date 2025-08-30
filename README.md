@@ -1,2 +1,2 @@
-# randoms in C
+# randoms
 
