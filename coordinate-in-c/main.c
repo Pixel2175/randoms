@@ -49,6 +49,40 @@ void draw_pixels(Color bg)
 
 }
 
+void draw_graph(Color bg,Color fg)
+{
+    for(int y = 0;y < HEIGHT;++y){
+        for(int x=0;x < WIDTH;++x){
+			draw_px(x, y, bg);
+        }
+    }
+	int cx, cy;
+	cxy(&cx,&cy);
+
+	int min = ( WIDTH < HEIGHT ) ? WIDTH : HEIGHT;
+	for (int i =0;i<min/2 - PADDING ;++i) {
+		draw_px(cx+i,  cy,fg);
+		draw_px(cx,  cy+i,fg);
+		draw_px(cx+(i * -1),  cy,fg);
+		draw_px(cx,  cy+(i * -1),fg);
+	}
+	int c = min /2 - PADDING;
+
+	for (int i=STEPS;i<c;i+=STEPS){
+		for (int j=0;j<10;++j){
+
+			draw_px(cx +i, (cy - 5) +j,RED);
+			draw_px((-1 * i) +cx, (cy - 5) +j,RED);
+
+			draw_px( (cx - 5) +j,cy +i ,RED);
+			draw_px( (cx - 5) +j,(-1 * i) +cy, RED);
+		}
+
+
+	}
+
+}
+
 void draw_circle(int ix, int iy, int radius, Color color)
 {
 	for(int y = -radius;y<=radius;++y){
@@ -65,7 +99,7 @@ void draw_circle(int ix, int iy, int radius, Color color)
 
 void draw_circlef(int ix, int iy, int radius, Color color)
 {
-	for (int i =0;i<=radius;i=i+3)
+	for (int i =0;i<=radius;i=i+1)
 		draw_circle(ix,iy,i,color+i*color);
 
 }
@@ -117,9 +151,9 @@ int main(void) {
 
 	// potato
 
-	for (int i =0;i<=5;++i){
-		draw_circlef(rand() % (WIDTH +i),rand() % (HEIGHT +i),x/1.5,RED * rand());
-	}
+
+	draw_graph(BG_COLOR,FG_COLOR);
+	draw_circlef(x,y,x/2,GREEN);
 
 	draw_all();
     return 0;
