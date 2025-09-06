@@ -9,10 +9,11 @@
 ## Xlib stuff
 
 > 3D Cube
-<video src="window_in_x/cube.mp4" controls></video>
+<img src="window_in_x/cube.gif" width="600" height="600" alt="Demo">
 
 > Circle 
-<video src="window_in_x/circle.mp4" controls></video>
+<img src="window_in_x/circle.gif" width="600" height="600" alt="Demo">
 
 > Game 
-<video src="window_in_x/game.mp4" controls></video>
+<img src="window_in_x/game.gif" width="600" height="600" alt="Demo">
+
